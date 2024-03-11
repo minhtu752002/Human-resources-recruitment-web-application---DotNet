@@ -1,0 +1,122 @@
+﻿@using ResourceEntity
+@model List<ResourceEntity.Models.Project>
+
+@{
+    ViewData["Title"] = "Danh sách dự án";
+}
+@*<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">*@
+@*<link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet"  crossorigin="anonymous">*@
+@section Scripts{
+    <script>
+        setTimeout(function () {
+            $('#msgAlert').fadeOut("slow");
+        }, 2000)
+    </script>
+}
+<div id="PlaceHoderHere"></div>
+<div id="DeleteModal"></div>
+@if (ViewBag.Msg != null)
+{
+    <div id="msgAlert" class="alert alert-success" style="position:absolute; z-index:10; top: 80px;
+    left: 50%;
+    transform: translate(-50%); " role="alert">
+        <i class="fa fa-check"></i>
+        @ViewBag.Msg
+    </div>
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between">
+            <h4>@ViewData["Title"]</h4>
+            @*<a class="btn btn-primary mr-1" asp-controller="Project" asp-action="RegisterProject">Thêm</a>*@
+            <div>
+
+            <button class="btn btn-primary mr-1" data-toggle="ajax-modal" data-target="#addProject" data-url="@Url.Action("RegisterProjectModal")">Thêm</button>
+            </div>
+        </div>
+            <div class="card-body">
+
+            <table id="table-Project" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th class="align-middle" style="display:none"> ID </th>
+                        <th class="align-middle"> Tên dự án </th>
+                        <th class="align-middle"> Ghi Chú </th>
+                        <th class="align-middle"> Tên Khách Hàng </th>
+                        <th class="align-middle"> Trạng thái<br>dự án </th>
+                        <th class="align-middle"> Hành động </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var project in ViewBag.Projects)
+                    {
+                        <tr>
+                            <td style="display:none">
+                                @project.ProjectId
+                            </td>
+                            <td>
+                                @project.ProjectName
+                            </td>
+                            <td>
+                                @project.ProjectDescription
+                            </td>
+                            <td>
+                                @project.ProjectClient
+                            </td>
+                            <td class="d-flex align-items-center">
+                                @{
+                                    if (@project.ProjectActive == "Y")
+                                    {
+                                        <label class="badge badge-success">Active</label>
+                                    }
+                                    else if (@project.ProjectActive == "N")
+                                    {
+                                        <label class="badge badge-danger">Inactive</label>
+                                    }
+                                    else
+                                    {
+                                        <span>N/A</span>
+                                    }
+                                }
+
+                                @*@project.ProjectActive*@
+                            </td>
+                            <td>
+                                
+                                <a class="mr-2" href="@Url.Action("Edit", "Project", new { id = project.ProjectId })" title="Chỉnh sửa">
+                                    <i class="fa fa-edit text-success mr-2" style="font-size:larger"></i>
+                                </a>
+                                @*  <a href="@Url.Action("Delete", "Project", new { id = project.ProjectId })" title="Xóa">
+                            <i class="fa fa-trash-o text-danger" style="font-size:larger"></i>
+                            </a> *@
+                                <a style="cursor:pointer"
+                                   title="Xóa"
+                                   data-toggle="Delete-modal"
+                                   data-target="#DeleteProject"
+                                   data-url="@Url.Action("DeleteProjectModal","Project", new { id = project.ProjectId })">
+                                    <i class="fa fa-trash-o text-danger" style="font-size:larger"></i>
+                                </a>
+
+                            </td>
+
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+
+@await Html.PartialAsync("_DataTableScripts")
+<script>
+    //new DataTable('#table-Project').DataTable();
+    var table = $('#table-Project').DataTable({
+        scrollX: true,
+    });
+    table
+        .order([0, 'desc'])
+        .draw();
+</script>

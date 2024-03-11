@@ -1,0 +1,61 @@
+﻿
+@{
+}
+@model ResourceEntity.Models.Vacancy
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="card card-header text-center ">
+                    <h4>
+                        Bạn có muốn xóa
+                    </h4>
+                    <p class="mb-0 text-danger font-weight-bold">
+                        Hành động không thể hoàn tác !!!
+                    </p>
+
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Công việc tuyển dụng :</th>
+                                    <td> @Model.VacancyJobTitle</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Nhà tuyển dụng :</th>
+                                    <td> @Model.VacancyHm</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Số lượng tuyển dụng :</th>
+                                    <td> @Model.VacancyAmout</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ngày bắt đầu</th>
+                                    <td> @Model.VacancyOd?.ToString("dd/MM/yyyy")</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ngày kết thúc</th>
+                                    <td> @Model.VacancyCd?.ToString("dd/MM/yyyy") </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <form asp-action="DeleteModalComfirm" method="post" class="text-center">
+                        <input type="hidden" asp-for="VacancyId" />
+                        <input type="submit" value="Xóa" class="btn btn-danger" />
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+﻿
+@{
+}
+@model ResourceEntity.Models.Employee
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="card card-header text-center ">
+                    <h4>
+                        Bạn có muốn xóa
+                    </h4>
+                    <p class="mb-0 text-danger font-weight-bold">
+                        Hành động không thể hoàn tác !!!
+                    </p>
+
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Tên nhân sự:</th>
+                                    <td> @Model.EmployeeName</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Địa chỉ:</th>
+                                    <td>@Model.EmployeeAddress</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Email:</th>
+                                    <td> @Model.EmployeeEmail </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <form asp-action="DeleteModalComfirm" method="post" class="text-center">
+                        <input type="hidden" asp-for="EmployeeId" />
+                        <input type="submit" value="Xóa" class="btn btn-danger" />
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>

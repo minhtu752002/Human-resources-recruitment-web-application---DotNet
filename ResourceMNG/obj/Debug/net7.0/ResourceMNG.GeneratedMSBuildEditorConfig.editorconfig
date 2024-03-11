@@ -1,0 +1,177 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ResourceMNG
+build_property.RootNamespace = ResourceMNG
+build_property.ProjectDir = D:\BPO-LEARN\Development\ResourceMNG\ResourceMNG\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\BPO-LEARN\Development\ResourceMNG\ResourceMNG
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Account/CapQuyen.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDYXBRdXllbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Account/ChangeAccountUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDaGFuZ2VBY2NvdW50VXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Account/CreateAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDcmVhdGVBY2NvdW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Account/EditAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFZGl0QWNjb3VudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Account/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Applicant/DeleteApplicantModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50XERlbGV0ZUFwcGxpY2FudE1vZGFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Applicant/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Applicant/ListApplicant.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50XExpc3RBcHBsaWNhbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Applicant/RegisterApplicant.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50XFJlZ2lzdGVyQXBwbGljYW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Employee/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Employee/EmployeeModalDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRW1wbG95ZWVNb2RhbERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Employee/ListEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcTGlzdEVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Employee/RegisterEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcUmVnaXN0ZXJFbXBsb3llZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Interview/Calendar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJ2aWV3XENhbGVuZGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Interview/EditResult.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJ2aWV3XEVkaXRSZXN1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Interview/ListInterview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJ2aWV3XExpc3RJbnRlcnZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Interview/RegisterInterview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJ2aWV3XFJlZ2lzdGVySW50ZXJ2aWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Interview/ResultInterview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJ2aWV3XFJlc3VsdEludGVydmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Project/CreateModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxDcmVhdGVNb2RhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Project/DeleteModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxEZWxldGVNb2RhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Project/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Project/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Project/RegisterProject.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxSZWdpc3RlclByb2plY3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Report/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Shared/_DataTableScripts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9EYXRhVGFibGVTY3JpcHRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Shared/_LayoutPro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRQcm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Shared/_LayoutProV2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRQcm9WMi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/User/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/User/LoginPro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpblByby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Vacancy/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjYW5jeVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Vacancy/ListVacancy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjYW5jeVxMaXN0VmFjYW5jeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Vacancy/RegisterVacancy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjYW5jeVxSZWdpc3RlclZhY2FuY3kuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Vacancy/VacacyDeleteModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjYW5jeVxWYWNhY3lEZWxldGVNb2RhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BPO-LEARN/Development/ResourceMNG/ResourceMNG/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-iuiv74k154

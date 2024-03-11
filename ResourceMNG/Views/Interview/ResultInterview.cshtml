@@ -1,0 +1,106 @@
+﻿
+@model ResourceEntity.Models.Interview
+
+@{
+	ViewData["Title"] = "Kết quả phỏng vấn";
+}
+
+@section Scripts{
+		<script>
+			setTimeout(function () {
+				$('#msgAlert').fadeOut("slow");
+			}, 2000)
+		</script>
+}
+@if (ViewBag.Msg != null)
+{
+		<div id="msgAlert" class="alert alert-success" style="position:absolute; z-index:10; top: 80px;
+    left: 50%;
+    transform: translate(-50%); " role="alert">
+			<i class="fa fa-check"></i>
+		@ViewBag.Msg
+	</div>
+}
+
+	<div class="col-lg-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-header ">
+			<div class="row">
+
+			<div class="col-md-8">
+				<h4>@ViewData["Title"]</h4>
+
+			</div>
+			<div class="col-md-4 text-right">
+				<div>
+				<a class="btn btn-primary mr-1 justify-content-end" asp-controller="Interview" asp-action="Calendar">Xem lịch</a>
+				<a class="mr-2 btn btn-primary text-truncate my-2" asp-action="ListInterview">
+					Danh sách phỏng vấn
+				</a>
+				</div>
+			</div>
+				</div>
+
+			</div>
+			<div class="card-body">
+			<div class="table-responsive">
+				<table id="table-applicant" class="table table-striped">
+					<thead>
+					<tr>
+						<th class="align-middle" style="display:none">ID</th>
+						<th class="align-middle">Ứng cử viên</th>
+						<th class="align-middle">Kết quả phỏng vấn lần 1<br /> phỏng vấn </th>
+						<th class="align-middle">Kết quả phỏng vấn lần 2<br /> phỏng vấn </th>
+						<th class="align-middle">Action</th>
+					</tr>
+					</thead>
+				<tbody>
+
+					@foreach (var interview in ViewBag.Interviews)
+					{
+						<tr>
+							<td style="display:none">
+								@interview.InterviewId
+							</td>
+							<td>
+								@(interview.Applicant != null ? interview.Applicant.ApplicantName : "N/A")
+							</td>
+							<td>
+								@if (interview.InterviewResultOne == "Y")
+								{
+									<i class="fa fa-check-circle-o text-success" style="font-size: larger"></i>
+								}
+								else
+								{
+									<i class="fa fa-check-circle-o text-danger" style="font-size: larger"></i>
+								}
+							</td>
+							<td>
+								@if (interview.InterviewResultTwo == "Y")
+								{
+									<i class="fa fa-check-circle-o text-success" style="font-size: larger"></i>
+								}
+								else
+								{
+									<i class="fa fa-check-circle-o text-danger" style="font-size: larger"></i>
+								}
+							</td>
+							<td>
+								<a class="mr-2" href="@Url.Action("EditResult", "Interview",new { id = interview.InterviewId })" title="Chỉnh sửa">
+									<i class="fa fa-edit text-success mr-2" style="font-size:larger"></i>
+								</a>
+								
+							</td>
+						</tr>
+					}
+					</tbody>
+				</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+

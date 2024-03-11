@@ -1,0 +1,94 @@
+﻿@model ResourceEntity.Models.NewVacancy
+
+@{
+	ViewData["Title"] = "Đăng ký tuyển dụng";
+}
+<div class="col-md-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-header">
+			<h4>@ViewData["Title"]</h4>
+		</div>
+		<div class="card-body">
+			<form asp-action="RegisterVacancy" method="post" enctype="multipart/form-data">
+				<div asp-validation-summary="All" class="text-danger"></div>
+				<div class="form-group">
+					<label asp-for="VacancyJobTitle" for="VacancyJobTitle">Vị trí tuyển dụng</label>
+					<input asp-for="VacancyJobTitle" type="text"  class="form-control" id="VacancyJobTitle" placeholder="Ex: BE developer" required>
+					<span asp-validation-for="VacancyJobTitle" class="text-danger"></span>
+
+				</div>
+
+				@*<div class="form-group">
+				<label asp-for="VacancyDetails" class="control-label"></label>
+				<input asp-for="FileVacancyDetails" type="file" class="form-control-file" accept=".pdf" />
+				<span asp-validation-for="VacancyDetails" class="text-danger"></span>
+				</div>*@
+				<div class="form-group">
+					<label asp-for="VacancyHm" class="control-label">Nhà tuyển dụng</label>
+					<input asp-for="VacancyHm" class="form-control" placeholder="Ex: HPT" required />
+					<span asp-validation-for="VacancyHm" class="text-danger"></span>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group w-100 mr-3">
+							<label asp-for="VacancyOd" class="control-label">Ngày bắt đầu</label>
+							<input name="VacancyOd" class="form-control" type="date" required />
+							<span asp-validation-for="VacancyOd" class="text-danger"></span>
+
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group w-100">
+							<label asp-for="VacancyCd" class="control-label">Ngày kết thúc</label>
+							<input asp-for="VacancyCd" class="form-control" type="date" required />
+							<span asp-validation-for="VacancyCd" class="text-danger"></span>
+						</div>
+					</div>
+
+					
+				</div>
+				<div class="form-group">
+					<label asp-for="VacancyAmout" class="control-label">Số lượng tuyển dụng</label>
+					<input asp-for="VacancyAmout" class="form-control" placeholder="Ex: 1" required />
+					<span asp-validation-for="VacancyAmout" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="VacancyDetails">Thông tin tuyển dụng</label>
+					<input asp-for="FileVacancyDetails" id="fileInputVacancyDetails" type="file" class="form-control-file file-upload-default" accept=".pdf">
+					<span asp-validation-for="VacancyDetails" class="text-danger"></span>
+					<div class="input-group col-xs-12">
+						<input id="fileNameVacancyDetails" type="text" class="form-control file-upload-info" disabled placeholder="*.pdf">
+						<span class="input-group-append">
+							<button class="file-upload-browse btn btn-info" id="uploadButtonVacancyDetails" type="button">Upload</button>
+						</span>
+					</div>
+				</div>
+				<div class=" text-center">
+					<input type="submit" value="Đăng ký" class="btn btn-primary" />
+					<a asp-action="ListVacancy" class="btn btn-light">Quay lại</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+@section Scripts {
+	<script>
+		function setupFileUpload(fileInput, fileNameInput, uploadButton) {
+			uploadButton.addEventListener("click", function () {
+				fileInput.click();
+			});
+
+			fileInput.addEventListener("change", function () {
+				if (fileInput.files.length > 0) {
+					const selectedFileName = fileInput.files[0].name;
+					fileNameInput.value = selectedFileName;
+				}
+			});
+		}
+		const fileInput = document.getElementById("fileInputVacancyDetails");
+		const fileNameInput = document.getElementById("fileNameVacancyDetails");
+		const uploadButton = document.getElementById("uploadButtonVacancyDetails");
+		setupFileUpload(fileInput, fileNameInput, uploadButton);
+	</script>
+}
+

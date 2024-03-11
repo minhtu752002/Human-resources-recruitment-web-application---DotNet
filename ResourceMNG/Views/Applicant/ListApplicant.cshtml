@@ -1,0 +1,201 @@
+﻿@using ResourceEntity
+@model List<ResourceEntity.Models.Applicant>
+
+@{
+	ViewData["Title"] = "Danh sách ứng cử viên";
+}
+
+@section Scripts{
+	<script>
+		setTimeout(function () {
+			$('#msgAlert').fadeOut("slow");
+		}, 2000)
+	</script>
+}
+@if (ViewBag.Msg != null)
+{
+	<div id="msgAlert" class="alert alert-success" style="position:absolute; z-index:10; top: 80px;
+    left: 50%;
+    transform: translate(-50%); " role="alert">
+		<i class="fa fa-check"></i>
+		@ViewBag.Msg
+	</div>
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-header d-flex justify-content-between">
+			<h4>@ViewData["Title"]</h4>
+		</div>
+		<div class="card-header">
+
+			<form id="searchFilter" asp-action="ListApplicant" method="post" enctype="multipart/form-data">
+			<div asp-validation-summary="All" class="text-danger"></div>
+			<div class="row">
+				<div class="col-12 col-md-3">
+					<div class="form-group d-flex flex-column">
+						<label class="control-label">Lọc theo vị trí tuyển dụng</label>
+							<select id="title" class="search-VacancyJobTitleApplicant form-control" name="title">
+								<option value="All">All</option>
+
+							@foreach (var item in ViewBag.SearchList)
+							{
+									if (item == ViewBag.SearchValue)
+									{
+										<option value="@item" selected="selected">@item</option>
+									}
+									else
+									{
+										<option value="@item">@item</option>
+									}
+							}
+						</select>
+					</div>
+				</div>
+				
+				<div class="col-12 col-md-9 d-flex justify-content-between align-items-center">
+					<input type="submit" value="Lọc" class="btn btn-primary" />
+					
+					<div>
+
+						<a class="btn btn-primary mr-1 justify-content-end" asp-controller="Applicant" asp-action="RegisterApplicant">Thêm</a>
+							
+						<a class="btn btn-success mr-1 justify-content-end" href="javascript:export1()">Export</a>
+					</div>
+
+				</div>
+			</div>
+			
+		</form>
+		</div>
+		<div class="card-body">
+			<table id="table-applicant" class="table table-striped mb-0" style="width:100%">
+				<thead>
+					<tr>
+						<th class="align-middle" style="display:none">ID</th>
+						<th class="align-middle">Action</th>
+						<th class="align-middle">Tên ứng viên</th>
+						<th class="align-middle">Ảnh</th>
+						<th class="align-middle">Vị trí<br>tuyển dụng</th>
+						<th class="align-middle">Năm sinh</th>
+						<th class="align-middle">Nơi sinh</th>
+						<th class="align-middle">Giới tính</th>
+						@* <th class="align-middle">Số điện thoại</th>
+						<th class="align-middle">Email</th>
+						<th class="align-middle">Địa chỉ</th> *@
+						<th class="align-middle">Liên hệ</th>
+						@* <th class="align-middle">Active</th> *@
+						<th class="align-middle">CV</th>
+
+					</tr>
+				</thead>
+				<tbody>
+
+					@foreach (var applicant in ViewBag.Applicants)
+					{
+						<tr>
+							<td style="display:none">
+								@applicant.ApplicantId
+							</td>
+							<td>
+
+								<a class="mr-2" href="@Url.Action("Edit", "Applicant",new { id = applicant.ApplicantId })" title="Chỉnh sửa">
+									<i class="fa fa-edit text-success" style="font-size:larger"></i>
+								</a>
+
+								<a style="cursor:pointer" class="mr-2"
+							   title="Xóa"
+							   data-toggle="Delete-modal-applicant"
+							   data-target="#DeleteProject"
+							   data-url="@Url.Action("DeleteApplicantModal","Applicant", new { id = applicant.ApplicantId })">
+									<i class="fa fa-trash-o text-danger" style="font-size:larger"></i>
+								</a>
+
+							</td>
+							<td>
+								@applicant.ApplicantName
+							</td>
+							<td>
+								<img src="/uploads/@applicant.ApplicantPicture" alt="@applicant.ApplicantPicture"
+								 width="100"
+								 height="100"
+								 onerror="this.onerror=null; this.src='/uploads/logo_002d.png';">
+							</td>
+							<td>
+								@*@applicant.VacancyId*@
+								@(applicant.Vacancy != null ? applicant.Vacancy.VacancyJobTitle : "N/A")
+							</td>
+							<td>
+								@Common.DateToYear(@applicant.ApplicantDob)
+							</td>
+
+							<td>
+								@applicant.ApplicantPob
+							</td>
+							<td>
+								@applicant.Gender
+							</td>
+                            <td>
+                                <p style="line-height:1.5"> 
+									<b>Địa chỉ: </b>@applicant.ApplicantAddress <br />
+									<b>Sđt: </b> @applicant.ApplicantPhone <br />
+									<b>Email: </b> @applicant.ApplicantEmail</p>
+                            </td>
+							
+							@* <td>
+								@applicant.ApplicantPhone
+							</td>
+							<td>
+								@applicant.ApplicantEmail
+							</td>
+							<td>
+								@applicant.ApplicantAddress
+							</td> *@
+
+						@* 	<td>
+								@if (applicant.ActiveEmployee == "Y")
+								{
+									<i class="fa fa-check-circle-o text-success" style="font-size: larger"></i>
+								}
+								else
+								{
+									<i class="fa fa-check-circle-o text-danger" style="font-size: larger"></i>
+								}
+							</td> *@
+
+							<td>
+								<a href="/uploads/@applicant.ApplicantCv"><i class="fa fa-file-pdf-o"></i></a>
+							</td>
+
+						</tr>
+					}
+
+
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+</div>
+
+
+<div id="DeleteModalApplicant"></div>
+@await Html.PartialAsync("_DataTableScripts")
+<script>
+	function export1 (){
+		window.location.href = "/Report/PrintApplicant?title=" + $('#title').val();
+	}
+
+	$('.search-VacancyJobTitleApplicant').select2({
+		placeholder: "Ex: .Net"
+	});
+	//new DataTable('#table-Project').DataTable();
+	var table = $('#table-applicant').DataTable({
+		scrollX: true,
+	});
+	table
+		.order([0, 'desc'])
+		.draw();
+
+	
+</script>

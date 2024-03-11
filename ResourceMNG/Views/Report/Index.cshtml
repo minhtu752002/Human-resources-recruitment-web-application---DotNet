@@ -1,0 +1,92 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Danh sách báo cáo";
+}
+
+<div class="row">
+    @* <div class="col-sm">
+        <div class="card">
+            <div class="card-header">
+
+                <h4>Danh sách dự án</h4>
+            </div>
+            <div class="card-body">
+                <h5>Điều kiện lọc</h5>
+                <select id="isActive" class="form-control" name="isActive">
+                    <option value="">-- Trạng thái dự án --</option>
+                    <option value="N">Không hoạt động</option>
+                    <option value="Y">Hoạt động</option>
+                </select>
+            </div>
+            <div class="card-footer">
+
+                <a class="btn btn-success mr-1" onclick="exportProject()"> <i class="fa fa-file-excel-o"></i>Export Excel</a>
+            </div>
+        </div>
+    </div> *@
+    <div class="col-sm my-4">
+        <div class="card" style="height:240px">
+            <div class="card-header">
+
+                <h4>Danh sách nhân sự</h4>
+            </div>
+            <div class="card-body">
+                @* <h5>Điều kiện lọc</h5> *@
+                <select id="isActive" class="form-control" name="isActive">
+                    <option value="">-- Điều kiện lọc --</option>
+                    <option value="N">All (mặc định)</option>
+                </select>
+            </div>
+            <div class="card-footer">
+
+                <a class="btn btn-primary mr-1" asp-controller="Report" asp-action="PrintNhansu"> <i class="fa fa-file-excel-o"></i>Export Excel</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm my-4">
+        <div class="card" style="height:240px">
+            <div class="card-header">
+
+                <h4>Danh sách ứng cử viên</h4>
+            </div>
+            <div class="card-body">
+                @* <h5>Điều kiện lọc</h5> *@
+
+                <select id="isActive" class="form-control" name="isActive">
+                    <option value="">-- Điều kiện lọc --</option>
+                    <option value="N">All (mặc định)</option>
+                </select>
+            </div>
+            <div class="card-footer">
+
+                <a class="btn btn-primary mr-1" asp-controller="Report" asp-action="PrintApplicantAll"> <i class="fa fa-file-excel-o"></i>Export Excel</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm my-4">
+        <div class="card" style="height:240px">
+            <div class="card-header">
+
+                <h4>Phân bổ nhân sự cho từng dự án</h4>
+            </div>
+            <div class="card-body">
+                @* <h5>Điều kiện lọc</h5> *@
+                <select id="isActive" class="form-control" name="isActive">
+                    <option value="">-- Điều kiện lọc --</option>
+                    <option value="N">All (mặc định)</option>
+                </select>
+            </div>
+            <div class="card-footer">
+
+                <a class="btn btn-primary mr-1" asp-controller="Report" asp-action="ImageVacancy"> <i class="fa fa-file-excel-o"></i>Download Image</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // function exportProject() {
+    //     window.location.href = "/Report/PrintProject?isActive=" + $('#isActive').val();
+    // }
+</script>

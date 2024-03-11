@@ -1,0 +1,52 @@
+﻿
+@{
+}
+@model ResourceEntity.Models.Project
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="card card-header text-center ">
+                    <h4>
+                    Bạn có muốn xóa
+                    </h4>
+                    <p class="mb-0 text-danger font-weight-bold">
+                    Hành động không thể hoàn tác !!!
+                    </p>
+
+                </div>
+            <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Tên dự án:</th>
+                                    <td> @Model.ProjectName</td>
+                                  
+                                </tr>
+                                <tr>
+                                    <th scope="row">Mô tả dự án:</th>
+                                    <td >@Model.ProjectDescription</td>
+                                  
+                                </tr>
+                                <tr>
+                                    <th scope="row">Khách hàng:</th>
+                                    <td> @Model.ProjectClient </td>
+                                  
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+                <form asp-action="DeleteModalComfirm" method="post" class="text-center">
+                    <input type="hidden" asp-for="ProjectId" />
+                    <input type="submit" value="Xóa" class="btn btn-danger" />
+                    @* <a asp-action="Index" class="btn btn-secondary">Hủy</a> *@
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                </form>
+            </div>
+          
+        </div>
+    </div>
+</div>
+</div>

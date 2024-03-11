@@ -1,0 +1,46 @@
+﻿@model ResourceEntity.Models.Project
+
+@{
+    ViewData["Title"] = "Đăng ký dự án";
+
+}
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <form asp-action="RegisterProject" method="post">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="card card-header text-center font-weight-bold">@ViewData["Title"]</div>
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="ProjectName" for="nameProject">Tên dự án</label>
+                        <input asp-for="ProjectName" required type="text" class="form-control" id="nameProject" placeholder="Tên dự án">
+                        <span asp-validation-for="ProjectName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ProjectDescription" for="DesProject">Mô tả dự án</label>
+                        <textarea asp-for="ProjectDescription" required type="text" class="form-control" id="DesProject" rows="2" placeholder="Mô tả"></textarea>
+                        <span asp-validation-for="ProjectDescription" class="text-danger"></span>
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ProjectClient" for="ClientProject">Khách hàng</label>
+                        <input asp-for="ProjectClient" required type="text" class="form-control" id="ClientProject" placeholder="Client Project">
+                        <span asp-validation-for="ProjectClient" class="text-danger"></span>
+                    </div>
+                     <div class="form-group">
+                        <label asp-for="ProjectActive" >Trạng thái dự án</label>
+                        <select required asp-for="ProjectActive" class="form-control">
+                            
+                            <option selected value="Y">Hoạt động</option>
+                            <option value="N">Không hoạt động</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success mr-2">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

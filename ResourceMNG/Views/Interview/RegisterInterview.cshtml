@@ -1,0 +1,132 @@
+﻿@model ResourceEntity.Models.Interview
+
+@{
+    ViewData["Title"] = "Đăng ký lịch phỏng vấn";
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-header">
+            <h4>@ViewData["Title"]</h4>
+        </div>
+        <div class="card-body">
+            <form asp-action="RegisterInterview" method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="row">
+                    <div class="col-md-6">
+
+                    <div class="form-group">
+                        <input asp-for="Applicant" type="hidden" />
+                        <label asp-for="ApplicantId" class="control-label">Ứng cử viên</label>
+                            <select asp-for="ApplicantId" id="ApplicantId" class="search-applicant form-control" name="title">
+                            @foreach (var applicant in ViewBag.ApplicantId as List<SelectListItem>)
+                            {
+                                <option value="@applicant.Value">@applicant.Text</option>
+                            }
+                        </select>
+                    </div>
+                    </div>
+
+                    @* <div id="rfvacancy" class="d-flex w-50 justify-content-center"> *@
+                    <div class="col-md-3">
+
+                        <div class="form-group d-none">
+                            <label class="control-label"></label>
+                            <input id="VacancyId" type="hidden" class="form-control" />
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label">Công việc tuyển dụng</label>
+                            <input id="VacancyJobTitle" type="text" class="form-control" readonly />
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Nhà tuyển dụng</label>
+                            <input id="VacancyHm" type="text" class="form-control" readonly />
+                        </div>
+                    </div>
+
+                    @* </div> *@
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+
+                    <div class="form-group ">
+                        <label asp-for="InterviewSd" class="control-label">Ngày bắt đầu phỏng vấn</label>
+                        <input asp-for="InterviewSd" required class="form-control"/>
+                        <span asp-validation-for="InterviewSd" class="text-danger"></span>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+
+                    <div class="form-group ">
+                        <label asp-for="InterviewEd" class="control-label">Ngày kết thúc phỏng vấn</label>
+                        <input asp-for="InterviewEd" required class="form-control"/>
+                        <span asp-validation-for="InterviewEd" class="text-danger"></span>
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+
+                    <div class="form-group ">
+                        <label asp-for="InterviewDescription" class="control-label">Mô tả cuộc phỏng vấn</label>
+                        <textarea asp-for="InterviewDescription" class="form-control"></textarea>
+                        <span asp-validation-for="InterviewDescription" class="text-danger"></span>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group ">
+                        <label asp-for="InterviewAddress" class="control-label">Địa chỉ buổi phỏng vấn</label>
+                        <textarea asp-for="InterviewAddress" class="form-control"></textarea>
+                        <span asp-validation-for="InterviewAddress" class="text-danger"></span>
+                    </div>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <div class="form-group ">
+                        <label asp-for="InterviewSchedule" class="control-label">Phỏng vấn vòng</label>
+                        <select asp-for="InterviewSchedule" required class="form-control">
+                            <option value="">-- Chọn kết quả --</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                        <span asp-validation-for="InterviewSchedule" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group text-center">
+                    <input type="submit" value="Đăng ký" class="btn btn-primary" />
+                    <a asp-action="ListInterview" class="btn btn-light">Quay lại</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@* <div>
+    <a asp-action="Index">Back to List</a>
+</div>
+ *@
+@await Html.PartialAsync("_DataTableScripts")
+<script>
+    $('.search-applicant').select2({
+        placeholder: "Ex: Nguyễn văn A"
+    });
+</script>
+@section Scripts {
+    <script>
+        $('#ApplicantId').on('change', function () {
+            //alert(this.value);
+            $.ajax({
+                url: '@Url.Action("GetVacancy","Interview")/' + this.value, dataType: "json", success: function (result) {
+                    $("#VacancyJobTitle").val(result.vacancyJobTitle);
+                    $("#VacancyHm").val(result.vacancyHm);
+                }
+            });
+        });
+        $("#ApplicantId").trigger("change");
+        
+
+    </script>
+}

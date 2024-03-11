@@ -1,0 +1,103 @@
+﻿@model IEnumerable<ResourceEntity.Models.User>
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Danh sách tài khoản";
+    Layout = "~/Views/Shared/_LayoutProV2.cshtml";
+}
+
+@* hiển thị thông báo *@
+@section Scripts{
+    <script>
+        setTimeout(function () {
+            $('#msgAlert').fadeOut("slow");
+        }, 2000)
+    </script>
+}
+@if (ViewBag.Msg != null)
+{
+    <div id="msgAlert" class="alert alert-success" style="position:absolute; z-index:10; top: 80px;
+    left: 50%;
+    transform: translate(-50%); " role="alert">
+        <i class="fa fa-check"></i>
+        @ViewBag.Msg
+    </div>
+}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between">
+            <h4>@ViewData["Title"]</h4>
+            <a class="btn btn-primary  justify-content-end" asp-controller="Account" asp-action="CreateAccount">Thêm</a>
+           
+        </div>
+        <div class="card-body">
+            <table id="table-account" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th style="display:none">
+                            ID
+                        </th>
+                        <th>
+                            Họ tên
+                        </th>
+                        <th>
+                            Username
+                        </th>
+                      
+                        <th>
+                           Liên hệ
+                        </th>
+                        
+                        <th>
+                            Cấp quyền
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.Account)
+                    {
+                        @if (item.Id != @HttpContextAccessor.HttpContext?.Session.GetInt32("IDUser"))
+                        {
+                        <tr>
+                                <td style="display:none">
+                                @item.Id
+                            </td>
+                            <td>
+                                @item.Fullname
+                            </td>
+                            <td>
+                                @item.Username
+                            </td>
+                                <td>
+                                    <p style="line-height:1.5">
+                                        <b>Địa chỉ: </b>@item.Address <br />
+                                        <b>Sđt: </b>  @item.Phone<br />
+                                        <b>Email: </b> @item.Email
+                                    </p>
+
+                                </td>
+                            <td>
+                                <a href="@Url.Action("CapQuyenModal","Account", new { id = item.Id })" class="mr-2" title="Cấp quyền">
+                                    <i class="fa fa-users text-success mr-2" style="font-size:larger"></i>
+                                </a>
+                                    <a class="mr-2" href="@Url.Action("EditAccount", "Account",new { id = item.Id })" title="Chỉnh sửa">
+                                        <i class="fa fa-edit text-success mr-2" style="font-size:larger"></i>
+                                    </a>
+                            </td>
+                        </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@await Html.PartialAsync("_DataTableScripts")
+<script>
+    //new DataTable('#table-Project').DataTable();
+    var table = $('#table-account').DataTable({
+        scrollX: true,
+    });
+    table
+        .order([0, 'desc'])
+        .draw();
+</script>

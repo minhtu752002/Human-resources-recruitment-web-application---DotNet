@@ -1,0 +1,103 @@
+﻿@model ResourceEntity.Models.Vacancy
+
+@{
+	ViewData["Title"] = "Chỉnh sửa thông tin tuyển dụng ";
+	Layout = "~/Views/Shared/_LayoutProV2.cshtml";
+}
+
+<div class="col-md-12 m-auto grid-margin stretch-card">
+	<div class="card">
+		<div class="card-header">
+			<h4>@ViewData["Title"]</h4>
+		</div>
+		<div class="card-body">
+			<form  asp-action="Edit" enctype="multipart/form-data">
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<input type="hidden" asp-for="VacancyId" />
+
+				<div class="form-group">
+					<label asp-for="VacancyJobTitle" class="control-label">Công việc tuyển dụng</label>
+					<input asp-for="VacancyJobTitle" class="form-control" />
+					<span asp-validation-for="VacancyJobTitle" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="VacancyHm" class="control-label">Nhà tuyển dụng</label>
+					<input asp-for="VacancyHm" class="form-control" />
+					<span asp-validation-for="VacancyHm" class="text-danger"></span>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label asp-for="VacancyOd" class="control-label">Ngày bắt đầu</label>
+							<input asp-for="VacancyOd" class="form-control" />
+							<span asp-validation-for="VacancyOd" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group ">
+							<label asp-for="VacancyCd" class="control-label">Ngày kết thúc</label>
+							<input asp-for="VacancyCd" class="form-control" />
+							<span asp-validation-for="VacancyCd" class="text-danger"></span>
+						</div>
+					</div>
+
+
+					
+				
+				</div>
+				<div class="form-group">
+					<label asp-for="VacancyAmout" class="control-label">Số lượng tuyển dụng</label>
+					<input asp-for="VacancyAmout" class="form-control" />
+					<span asp-validation-for="VacancyAmout" class="text-danger"></span>
+				</div>
+
+				<div class="form-group d-none">
+					<label asp-for="VacancyDetails" class="control-label"></label>
+					<input asp-for="VacancyDetails" class="form-control" />
+				</div>
+				<div class="form-group">
+					<label asp-for="VacancyDetails">Thông tin tuyển dụng</label>
+					<input name="FileVacancyDetails" id="fileInput" type="file" class="form-control-file file-upload-default" accept=".pdf">
+					<div class="input-group col-xs-12">
+						<input id="fileName" type="text" class="form-control file-upload-info" disabled placeholder="*.pdf">
+						<span class="input-group-append">
+							<button class="file-upload-browse btn btn-info" id="uploadButton" type="button">Upload</button>
+						</span>
+					</div>
+					
+				</div>
+				<a href="/uploads/@Model.VacancyDetails" target="_blank"><i class="fa fa-file-pdf-o mr-1"></i>@Model.VacancyDetails</a>
+
+				<div class="form-group text-center">
+					<input type="submit" value="Lưu" class="btn btn-primary" />
+					<button asp-action="ListVacancy" class="btn btn-light">Quay lại</button>
+
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<script>
+	//xử lý upload file cv,img
+	function setupFileUpload(fileInput, fileNameInput, uploadButton) {
+		uploadButton.addEventListener("click", function () {
+			fileInput.click();
+		});
+
+		fileInput.addEventListener("change", function () {
+			if (fileInput.files.length > 0) {
+				const selectedFileName = fileInput.files[0].name;
+				fileNameInput.value = selectedFileName;
+			}
+		});
+	}
+
+	const fileInput = document.getElementById("fileInput");
+	const fileNameInput = document.getElementById("fileName");
+	const uploadButton = document.getElementById("uploadButton");
+	setupFileUpload(fileInput, fileNameInput, uploadButton);
+
+
+</script>
+
+

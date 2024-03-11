@@ -1,0 +1,131 @@
+﻿@model ResourceEntity.Models.NewEmployee
+
+@{
+    ViewData["Title"] = "Đăng ký nhân sự";
+
+}
+
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-header">
+            <h4>@ViewData["Title"]</h4>
+        </div>
+        <div class="card-body">
+            <form asp-action="RegisterEmployee" method="post" enctype="multipart/form-data" class="forms-sample">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="form-group ">
+                            <label asp-for="EmployeeName" for="exampleInputName1">Họ và tên</label>
+                            <input asp-for="EmployeeName" type="text" required class="form-control" id="exampleInputName1" placeholder="Ex: Nguyễn Văn A">
+                            <span asp-validation-for="EmployeeName" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group ">
+                            <label asp-for="EmployeeEmail" for="exampleInputEmail3">Email</label>
+                            <input asp-for="EmployeeEmail" type="email" required class="form-control" id="exampleInputEmail3" placeholder="Ex: nguyenvana@gmail.com">
+                            <span asp-validation-for="EmployeeEmail" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group ">
+                            <label asp-for="EmployeeAddress" for="exampleInputPassword4">Địa chỉ</label>
+                            <textarea asp-for="EmployeeAddress" type="text" class="form-control" id="exampleInputPassword4" required placeholder="Ex: HCM"></textarea>
+                            <span asp-validation-for="EmployeeAddress" class="text-danger"></span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+
+                    <div class="form-group">
+                        <label asp-for="EmployeePhone" for="exampleInputPassword4">Số điện thoại</label>
+                        <input asp-for="EmployeePhone" type="number" class="form-control" placeholder="Ex: 0912345678" />
+                        <span asp-validation-for="EmployeeEmail" class="text-danger"></span>
+
+                    </div>
+                    </div>
+                    <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="EmployeeDepartment">Phòng ban</label>
+                        <input asp-for="EmployeeDepartment" type="text" required class="form-control" placeholder="Ex: HPT">
+                        <span asp-validation-for="EmployeeDepartment" class="text-danger"></span>
+
+                    </div>
+                    </div>
+
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="EmployeeCv">Upload CV</label>
+                            <input asp-for="FileEmployeeCv" id="fileInput" type="file" class="form-control-file file-upload-default" accept=".pdf">
+                            <div class="input-group col-xs-12">
+                                <input id="fileName" type="text" class="form-control file-upload-info" disabled placeholder="*.pdf">
+                                <span class="input-group-append">
+                                    <button class="file-upload-browse btn btn-info" id="uploadButton" type="button">Upload</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="EmployeeAvatar">Upload Avatar</label>
+                            <input asp-for="FileEmployeeAvatar" id="imgInput" type="file" class="form-control-file file-upload-default" accept="image/*">
+                            <span asp-validation-for="EmployeeAvatar" class="text-danger"></span>
+                            <div class="input-group col-xs-12">
+                                <input id="imgName" type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                                <span class="input-group-append">
+                                    <button id="imgUploadButton" class="file-upload-browse btn btn-info" type="button">Upload</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+
+                <div class="text-center">
+
+                    <button type="submit" class="btn btn-success mr-2">Đăng ký</button>
+                    <a asp-action="ListEmployee" class="btn btn-light">Quay lại</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        //sử lý upload file cv,img
+        function setupFileUpload(fileInput, fileNameInput, uploadButton) {
+            uploadButton.addEventListener("click", function () {
+                fileInput.click();
+            });
+
+            fileInput.addEventListener("change", function () {
+                if (fileInput.files.length > 0) {
+                    const selectedFileName = fileInput.files[0].name;
+                    fileNameInput.value = selectedFileName;
+                }
+            });
+        }
+
+        const fileInput = document.getElementById("fileInput");
+        const fileNameInput = document.getElementById("fileName");
+        const uploadButton = document.getElementById("uploadButton");
+        setupFileUpload(fileInput, fileNameInput, uploadButton);
+
+        const imgInput = document.getElementById("imgInput");
+        const imgNameInput = document.getElementById("imgName");
+        const imgUploadButton = document.getElementById("imgUploadButton");
+        setupFileUpload(imgInput, imgNameInput, imgUploadButton);
+    </script>
+}
+

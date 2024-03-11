@@ -1,0 +1,168 @@
+﻿@model ResourceEntity.Models.Applicant
+
+@{
+    ViewData["Title"] = "Chỉnh sửa thông tin ứng cử viên";
+    Layout = "~/Views/Shared/_LayoutProV2.cshtml";
+}
+
+
+<div class="col-md-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-header">
+			<h4>@ViewData["Title"]</h4>
+		</div>
+		<div class="card-body">
+			<form asp-action="Edit" enctype="multipart/form-data">
+				@*<div asp-validation-summary="All" class="text-danger"></div>*@
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<input type="hidden" asp-for="ApplicantId" />
+				<div class="row">
+					<div class="col-md-3">
+						<div class="form-group ">
+							<label asp-for="ApplicantName" class="control-label">Họ và tên</label>
+							<input asp-for="ApplicantName" class="form-control" />
+							<span asp-validation-for="ApplicantName" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label asp-for="Gender" class="control-label">Giới tính</label>
+							<select asp-for="Gender" class="form-control">
+								<option value="">-- Chọn giới tính --</option>
+								<option value="Nam">Nam</option>
+								<option value="Nữ">Nữ</option>
+							</select>
+							<span asp-validation-for="Gender" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group ">
+							<label asp-for="ApplicantDob" class="control-label">Ngày sinh</label>
+							<input asp-for="ApplicantDob" class="form-control" type="date" />
+							<span asp-validation-for="ApplicantDob" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group ">
+							<label asp-for="ApplicantPob" class="control-label">Nơi sinh</label>
+							<input asp-for="ApplicantPob" class="form-control"></input>
+							<span asp-validation-for="ApplicantPob" class="text-danger"></span>
+						</div>
+					</div>
+
+					
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="form-group ">
+							<label asp-for="ApplicantPhone" class="control-label">Số điện thoại</label>
+							<input asp-for="ApplicantPhone" class="form-control" type="number" />
+							<span asp-validation-for="ApplicantPhone" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group ">
+							<label asp-for="ApplicantEmail" class="control-label">Email</label>
+							<input asp-for="ApplicantEmail" class="form-control" />
+							<span asp-validation-for="ApplicantEmail" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label asp-for="ApplicantAddress" class="control-label">Địa chỉ</label>
+							<textarea asp-for="ApplicantAddress" class="form-control"></textarea>
+							<span asp-validation-for="ApplicantAddress" class="text-danger"></span>
+						</div>
+						
+						<div class="form-group d-none">
+							<label asp-for="ApplicantPicture" class="control-label"></label>
+							<input asp-for="ApplicantPicture" class="form-control"/>
+						</div>
+						<div class="form-group d-none">
+							<label asp-for="ApplicantCv" class="control-label"></label>
+							<input asp-for="ApplicantCv" class="form-control"/>
+						</div>
+					</div>
+
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group ">
+							<input asp-for="Vacancy" type="hidden" />
+							<label asp-for="VacancyId" class="control-label">Vị trí tuyển dụng</label>
+							<select asp-for="VacancyId" class="form-control search-VacancyJobTitleApplicant">
+								@foreach (var vacancy in ViewBag.VacancyId as List<SelectListItem>)
+								{
+									<option value="@vacancy.Value">@vacancy.Text</option>
+								}
+							</select>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							@*@Html.TextBox("ApplicantPicture",Model.ApplicantPicture,new { @class = "form-control" })*@
+							<label asp-for="ApplicantPicture">Upload Avatar</label>
+							<input name="FileApplicantPicture" id="imgInput" type="file" class="form-control-file file-upload-default" accept="image/*">
+							<span asp-validation-for="ApplicantPicture" class="text-danger"></span>
+							<div class="input-group col-xs-12">
+								<input id="imgName" type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+								<span class="input-group-append">
+									<button id="imgUploadButton" class="file-upload-browse btn btn-info" type="button">Upload</button>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label asp-for="ApplicantCv">Upload CV <a href="/uploads/@Model.ApplicantCv" target="_blank"><i class="fa fa-file-pdf-o mr-1"></i>@Model.ApplicantCv</a></label>
+							<input name="FileApplicantCv" id="fileInput" type="file" class="form-control-file file-upload-default" accept=".pdf">
+							<div class="input-group col-xs-12">
+								<input id="fileName" type="text" class="form-control file-upload-info" disabled placeholder="*.pdf">
+								<span class="input-group-append">
+									<button class="file-upload-browse btn btn-info" id="uploadButton" type="button">Upload</button>
+								</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				
+				<div class="form-group text-center">
+					<input type="submit" value="Sửa" class="btn btn-primary" />
+					<button asp-action="ChangeToEmployee" class="btn btn-light">Chuyển thành nhân viên</button>
+					<button asp-action="ListApplicant" class="btn btn-light">Quay lại</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+@await Html.PartialAsync("_DataTableScripts")
+
+<script>
+	$('.search-VacancyJobTitleApplicant').select2({
+		placeholder: "Ex: .Net"
+	});
+	//xử lý upload file cv,img
+	function setupFileUpload(fileInput, fileNameInput, uploadButton) {
+		uploadButton.addEventListener("click", function () {
+			fileInput.click();
+		});
+
+		fileInput.addEventListener("change", function () {
+			if (fileInput.files.length > 0) {
+				const selectedFileName = fileInput.files[0].name;
+				fileNameInput.value = selectedFileName;
+			}
+		});
+	}
+
+	const fileInput = document.getElementById("fileInput");
+	const fileNameInput = document.getElementById("fileName");
+	const uploadButton = document.getElementById("uploadButton");
+	setupFileUpload(fileInput, fileNameInput, uploadButton);
+
+	const imgInput = document.getElementById("imgInput");
+	const imgNameInput = document.getElementById("imgName");
+	const imgUploadButton = document.getElementById("imgUploadButton");
+	setupFileUpload(imgInput, imgNameInput, imgUploadButton);
+</script>

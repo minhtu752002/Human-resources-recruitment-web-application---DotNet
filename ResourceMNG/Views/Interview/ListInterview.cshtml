@@ -1,0 +1,194 @@
+﻿@using ResourceEntity
+@model List<ResourceEntity.Models.Interview>
+
+@{
+	ViewData["Title"] = "Danh sách phỏng vấn";
+}
+
+@section Scripts{
+	<script>
+		setTimeout(function () {
+			$('#msgAlert').fadeOut("slow");
+		}, 2000)
+	</script>
+}
+@if (ViewBag.Msg != null)
+{
+	<div id="msgAlert" class="alert alert-success" style="position:absolute; z-index:10; top: 80px;
+    left: 50%;
+    transform: translate(-50%); " role="alert">
+		<i class="fa fa-check"></i>
+		@ViewBag.Msg
+	</div>
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-header d-flex justify-content-between">
+			<h4>@ViewData["Title"]</h4>
+			@* <div>
+
+			<a class="btn btn-primary mr-1 justify-content-end" asp-controller="Interview" asp-action="RegisterInterview">Thêm</a>
+			<a class="btn btn-primary mr-1 justify-content-end" asp-controller="Interview" asp-action="Calendar">Xem lịch</a>
+			</div> *@
+		</div>
+		<div class="card-header">
+
+			<form id="searchFilter" asp-action="ListInterview" method="post" enctype="multipart/form-data">
+				<div asp-validation-summary="All" class="text-danger"></div>
+				<div class="row">
+					<div class="col-12 col-md-3">
+						<div class="form-group d-flex flex-column">
+							<label class="control-label">Lọc theo vị trí tuyển dụng</label>
+							<select id="title" class="search-VacancyJobTitle form-control" name="title">
+								<option value="All">All</option>
+								@foreach (var item in ViewBag.SearchList)
+								{
+									if (item == ViewBag.SearchValueTitle)
+									{
+										<option value="@item" selected="selected">@item</option>
+									}
+									else
+									{
+										<option value="@item">@item</option>
+									}
+								}
+							</select>
+						</div>
+					</div>
+					<div class="col-12 col-md-3">
+						<div class="form-group d-flex flex-column">
+							<label class="control-label">Lọc theo nhà tuyển dụng</label>
+							<select id="ntd" class="search-ntd form-control" name="ntd">
+								<option value="All">All</option>
+								@foreach (var item in ViewBag.SearchListNTD)
+								{
+									if (item == ViewBag.SearchValueNtd)
+									{
+										<option value="@item" selected="selected">@item</option>
+									}
+									else
+									{
+										<option value="@item">@item</option>
+									}
+								}
+							</select>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 d-flex justify-content-between align-items-center">
+						<div>
+							<a href="@Url.Action("ListInterview",new {isWeek = true})" class="btn btn-primary text-truncate text-white">Lọc theo tuần</a>
+							<input type="submit" value="Lọc" class="btn btn-primary my-1" />
+						</div>
+						<div class="mx-1">
+							<a class="btn btn-primary mr-1 justify-content-end" asp-controller="Interview" asp-action="RegisterInterview">Thêm</a>
+							<a class="btn btn-primary mr-1 justify-content-end my-1" asp-controller="Interview" asp-action="Calendar">Xem lịch</a>
+
+							<a class="btn btn-success mr-1 justify-content-end" href="javascript:exportInterviewFilter()">Export</a>
+						</div>
+
+					</div>
+				</div>
+
+			</form>
+		</div>
+
+		<div class="card-body">
+			<table id="table-applicant" class="table table-striped mb-0" style="width:100%">
+				<thead>
+					<tr>
+						<th class="align-middle" style="display:none">ID</th>
+						<th class="align-middle">Action</th>
+						<th class="align-middle">Ứng cử viên</th>
+						<th class="align-middle">Phỏng vấn vòng</th>
+						<th class="align-middle">Ngày bắt đầu<br /> phỏng vấn </th>
+						<th class="align-middle">Kết thúc<br /> phỏng vấn </th>
+						<th class="align-middle">Mô tả cuộc<br /> phỏng vấn </th>
+						<th class="align-middle">Địa chỉ<br /> phỏng vấn</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					@foreach (var interview in ViewBag.Interviews)
+					{
+						<tr>
+							<td style="display:none">
+								@interview.InterviewId
+							</td>
+							<td>
+								<a class="mr-2" href="@Url.Action("ResultInterview", "Interview",new { id = interview.InterviewId })" title="Kết quả pv">
+									<i class="fa fa-edit text-success mr-2" style="font-size:larger"></i>
+								</a>
+							</td>
+							<td>
+								@(interview.Applicant != null ? interview.Applicant.ApplicantName : "N/A")
+							</td>
+							@*<td>
+						@if (interview.InterviewResultOne == "Y")
+						{
+						<i class="fa fa-check-circle-o text-success" style="font-size: larger"></i>
+						}
+						else
+						{
+						<i class="fa fa-check-circle-o text-danger" style="font-size: larger"></i>
+						}
+						</td>
+						<td>
+						@if (interview.InterviewResultTwo == "Y")
+						{
+						<i class="fa fa-check-circle-o text-success" style="font-size: larger"></i>
+						}
+						else
+						{
+						<i class="fa fa-check-circle-o text-danger" style="font-size: larger"></i>
+						}
+						</td>*@
+							<td>
+								@interview.InterviewSchedule
+							</td>
+							<td>
+								@(interview.InterviewSd.ToString("yyyy/MM/dd hh:mm"))
+							</td>
+							<td>
+								@Common.DateToHour( @interview.InterviewEd)
+							</td>
+							<td>
+								@interview.InterviewDescription
+							</td>
+							<td>
+								@interview.InterviewAddress
+							</td>
+
+							
+						</tr>
+					}
+
+
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+</div>
+
+<div id="DeleteModalApplicant"></div>
+@await Html.PartialAsync("_DataTableScripts")
+<script>
+	function exportInterviewFilter() {
+		window.location.href = "/Report/PrintInterview?title=" + $('#title').val() + "&ntd=" + $('#ntd').val();
+	}
+
+	$('.search-VacancyJobTitle').select2({
+		placeholder: "Ex: .Net"
+	});
+	$('.search-ntd').select2({
+		placeholder: "Ex: HPT"
+	});
+	//new DataTable('#table-Project').DataTable();
+	var table = $('#table-applicant').DataTable({
+		scrollX: true
+	});
+	table
+		.order([0, 'desc'])
+		.draw();
+</script>

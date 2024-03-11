@@ -1,0 +1,28 @@
+D:\Visual Studio 2022\ResourceMNG\ResourceEntity\bin\Debug\net7.0\ResourceEntity.deps.json
+D:\Visual Studio 2022\ResourceMNG\ResourceEntity\bin\Debug\net7.0\ResourceEntity.dll
+D:\Visual Studio 2022\ResourceMNG\ResourceEntity\bin\Debug\net7.0\ResourceEntity.pdb
+D:\Visual Studio 2022\ResourceMNG\ResourceEntity\obj\Debug\net7.0\ResourceEntity.csproj.AssemblyReference.cache
+D:\Visual Studio 2022\ResourceMNG\ResourceEntity\obj\Debug\net7.0\ResourceEntity.GeneratedMSBuildEditorConfig.editorconfig
+D:\Visual Studio 2022\ResourceMNG\ResourceEntity\obj\Debug\net7.0\ResourceEntity.AssemblyInfoInputs.cache
+D:\Visual Studio 2022\ResourceMNG\ResourceEntity\obj\Debug\net7.0\ResourceEntity.AssemblyInfo.cs
+D:\Visual Studio 2022\ResourceMNG\ResourceEntity\obj\Debug\net7.0\ResourceEntity.csproj.CoreCompileInputs.cache
+D:\Visual Studio 2022\ResourceMNG\ResourceEntity\obj\Debug\net7.0\ResourceEntity.dll
+D:\Visual Studio 2022\ResourceMNG\ResourceEntity\obj\Debug\net7.0\refint\ResourceEntity.dll
+D:\Visual Studio 2022\ResourceMNG\ResourceEntity\obj\Debug\net7.0\ResourceEntity.pdb
+D:\Visual Studio 2022\ResourceMNG\ResourceEntity\obj\Debug\net7.0\ref\ResourceEntity.dll
+D:\Visual Studio 2022\ResourceMNG\ResourceEntity\bin\Debug\net7.0\ResourceEntity.runtimeconfig.json
+D:\Visual Studio 2022\ResourceMNG\ResourceEntity\obj\Debug\net7.0\ResourceEntity.genruntimeconfig.cache
+D:\BPO-LEARN\Development\ResourceMNG\ResourceEntity\bin\Debug\net7.0\ResourceEntity.deps.json
+D:\BPO-LEARN\Development\ResourceMNG\ResourceEntity\bin\Debug\net7.0\ResourceEntity.runtimeconfig.json
+D:\BPO-LEARN\Development\ResourceMNG\ResourceEntity\bin\Debug\net7.0\ResourceEntity.dll
+D:\BPO-LEARN\Development\ResourceMNG\ResourceEntity\bin\Debug\net7.0\ResourceEntity.pdb
+D:\BPO-LEARN\Development\ResourceMNG\ResourceEntity\obj\Debug\net7.0\ResourceEntity.csproj.AssemblyReference.cache
+D:\BPO-LEARN\Development\ResourceMNG\ResourceEntity\obj\Debug\net7.0\ResourceEntity.GeneratedMSBuildEditorConfig.editorconfig
+D:\BPO-LEARN\Development\ResourceMNG\ResourceEntity\obj\Debug\net7.0\ResourceEntity.AssemblyInfoInputs.cache
+D:\BPO-LEARN\Development\ResourceMNG\ResourceEntity\obj\Debug\net7.0\ResourceEntity.AssemblyInfo.cs
+D:\BPO-LEARN\Development\ResourceMNG\ResourceEntity\obj\Debug\net7.0\ResourceEntity.csproj.CoreCompileInputs.cache
+D:\BPO-LEARN\Development\ResourceMNG\ResourceEntity\obj\Debug\net7.0\ResourceEntity.dll
+D:\BPO-LEARN\Development\ResourceMNG\ResourceEntity\obj\Debug\net7.0\refint\ResourceEntity.dll
+D:\BPO-LEARN\Development\ResourceMNG\ResourceEntity\obj\Debug\net7.0\ResourceEntity.pdb
+D:\BPO-LEARN\Development\ResourceMNG\ResourceEntity\obj\Debug\net7.0\ResourceEntity.genruntimeconfig.cache
+D:\BPO-LEARN\Development\ResourceMNG\ResourceEntity\obj\Debug\net7.0\ref\ResourceEntity.dll

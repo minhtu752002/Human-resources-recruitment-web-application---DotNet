@@ -1,0 +1,47 @@
+﻿@model ResourceEntity.Models.Interview
+
+@{
+	ViewData["Title"] = "Chỉnh sửa kết quả phỏng vấn";
+	Layout = "~/Views/Shared/_LayoutProV2.cshtml";
+}
+
+
+<div class="col-md-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-header">
+			<h4>@ViewData["Title"]</h4>
+		</div>
+		<div class="card-body">
+			<form asp-action="EditResult" enctype="multipart/form-data">
+				@*<div asp-validation-summary="All" class="text-danger"></div>*@
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<input type="hidden" asp-for="InterviewId" />
+				<div class="d-flex ">
+					<div class="form-group w-25 mx-3">
+						<label asp-for="InterviewResultOne" class="control-label">Kết quả phỏng vấn lần 1</label>
+						<select asp-for="InterviewResultOne" class="form-control">
+							<option value="">-- Chọn kết quả --</option>
+							<option value="Y">Đậu</option>
+							<option value="N">Rớt</option>
+						</select>
+						<span asp-validation-for="InterviewResultOne" class="text-danger"></span>
+					</div>
+					<div class="form-group w-25 mx-3">
+						<label asp-for="InterviewResultTwo" class="control-label">Kết quả phỏng vấn lần 2</label>
+						<select asp-for="InterviewResultTwo" class="form-control">
+							<option value="">-- Chọn kết quả --</option>
+							<option value="Y">Đậu</option>
+							<option value="N">Rớt</option>
+						</select>
+						<span asp-validation-for="InterviewResultOne" class="text-danger"></span>
+					</div>
+				</div>
+				<div class="form-group text-center">
+					<input type="submit" value="Sửa" class="btn btn-primary" />
+					<button asp-action="ResultInterview" asp-route-id="@Model.InterviewId" class="btn btn-light">Quay lại</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
